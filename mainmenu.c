@@ -14,25 +14,25 @@ int loading();
 # include "search.c"
 #include "accuracy.c"
 #include "stats.c"
-int loading()
-{clear();
-printf("\t");
-
-char c[10]={'#','!','@','$','*','&','?'};
-int i=0;int k;
-while(k<2)
-{
-printf("\n\n\n\n\n\n\n\n");
-printf("\t\t\t\t      %c\n",c[i]);
-i++;
-printf("\t\t\t\t   Loading\n");
-//sleep(1);
- usleep(100000);
-clear();
-if(i%7==0)
-{i=0;k++;}
-}
-clear();
+int loading(){
+	clear();
+	printf("\t");
+	char c[10]={'#','!','@','$','*','&','?'};
+	int i=0;int k;
+	
+	while(k<2){
+		printf("\n\n\n\n\n\n\n\n");	
+		printf("\t\t\t\t      %c\n",c[i]);
+		i++;
+		printf("\t\t\t\t   Loading\n");
+		//sleep(1);
+		usleep(100000);
+		clear();
+		if(i%7==0){
+			i=0;k++;
+		}
+	}
+	clear();
 }
 
 char getch(){
@@ -57,72 +57,39 @@ char getch(){
         perror ("tcsetattr ~ICANON");
     //printf("%c\n",buf);
     return buf;
- }
-int main()
-{loading();
-clear();
-printf("\t\t\t\tTYPE RACER\n");
-printf("\n\n\n\t  Press the number to open the corresponding sub menu\n");
-printf("\n\n\t\t\t1. New Account");
-printf("\n\n\t\t\t2. Sign in");
-printf("\n\n\t\t\t3. Statistics");
-printf("\n\n\t\t\t4. Exit");
-char c=getch();
-if(c=='1'||c=='2'||c=='3'||c=='4')
-{
-clear();
-//printf("Hello");
-if(c=='1')
-{
-newacct();
 }
-if(c=='2')
-{
-
-search();
+ 
+int main(){
+	loading();
+	clear();
+	printf("\t\t\t\tTYPE RACER\n");
+	printf("\n\n\n\t  Press the number to open the corresponding sub menu\n");
+	printf("\n\n\t\t\t1. New Account");
+	printf("\n\n\t\t\t2. Sign in");
+	printf("\n\n\t\t\t3. Statistics");
+	printf("\n\n\t\t\t4. Exit");
+	char c=getch();
+	if(c=='1'||c=='2'||c=='3'||c=='4'){
+		clear();
+		//printf("Hello");
+		if(c=='1'){
+		newacct();
+		}
+		if(c=='2'){
+		search();
+		}
+		if(c=='3'){
+		stats();
+		}
+		if(c=='4'){
+		printf("\n\n\n\n\n\n\n\n");
+		printf ("\t\t\t\t   GOODBYE\n");
+		sleep(2);
+		clear();
+		exit(1);
+		}
+	}
+	else
+		main();
+	return 0;
 }
-if(c=='3')
-{
-stats();
-
-}
-if(c=='4')
-{
-printf("\n\n\n\n\n\n\n\n");
-printf ("\t\t\t\t   GOODBYE\n");
-sleep(2);
-clear();
-exit(1);
-}}
-else
-
-main();
-
-
-return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
